@@ -21,13 +21,16 @@
     firebase.initializeApp(config);
 
     function createUser(email, password) {
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+        const user = firebase.auth().currentUser;
+        console.log("USER ID: " + user.uid);
+      }).catch(function(error) {
         console.log(error);
       });
     }
 
     createUser("USER@MAIL.COM", "PAROLA123");
-    
+
   </script>
 </body>
 
