@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+</head>
+
+<body>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBXcnZ9FJqKWFsu9YSzZCoQ24mTCDWUtx0",
+      authDomain: "courses-fire-app-b22ab.firebaseapp.com",
+      databaseURL: "https://courses-fire-app-b22ab.firebaseio.com",
+      projectId: "courses-fire-app-b22ab",
+      storageBucket: "courses-fire-app-b22ab.appspot.com",
+      messagingSenderId: "611694221596"
+    };
+    firebase.initializeApp(config);
+
+    var db = firebase.database();
+
+
+    function getAnnouncements() {
+      db.ref().child('announcements').once('value').then(function(snapshot) {
+        snapshot.forEach(ss => {
+          const value = ss.val();
+          console.log(value);
+        });
+      }, function(error) {
+        console.error(error);
+      });
+    }
+
+    getAnnouncements();
+  </script>
+</body>
+
+</html>
