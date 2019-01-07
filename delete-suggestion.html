@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+</head>
+
+<body>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBXcnZ9FJqKWFsu9YSzZCoQ24mTCDWUtx0",
+      authDomain: "courses-fire-app-b22ab.firebaseapp.com",
+      databaseURL: "https://courses-fire-app-b22ab.firebaseio.com",
+      projectId: "courses-fire-app-b22ab",
+      storageBucket: "courses-fire-app-b22ab.appspot.com",
+      messagingSenderId: "611694221596"
+    };
+    firebase.initializeApp(config);
+
+    var db = firebase.database();
+
+    function deleteSuggestion(suggestionId) {
+      db.ref().child('suggestions/' + suggestionId).set(null).then(function(snapshot) {
+        console.log("SUCCESS");
+      }, function(error) {
+        console.error(error);
+      });
+    }
+
+    deleteSuggestion('-LVcf_7qa3Jza9Q_TTyB');
+  </script>
+</body>
+
+</html>
