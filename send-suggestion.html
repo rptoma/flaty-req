@@ -28,13 +28,14 @@
       const suggestionId = ref.getKey();
       ref.set({
         'title': title,
-        'description': description
+        'description': description,
+        'timestamp': firebase.database.ServerValue.TIMESTAMP
       }, function(error) {
         if (error) {
           console.log(error);
         } else {
           console.log("SUCCESS!");
-          console.log("Suggestion Id:" + suggestiontId);
+          console.log("Suggestion Id:" + suggestionId);
         }
       });
     }

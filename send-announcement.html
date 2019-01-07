@@ -28,7 +28,8 @@
       const announcementId = ref.getKey();
       ref.set({
         'title': title,
-        'description': description
+        'description': description,
+        'timestamp': firebase.database.ServerValue.TIMESTAMP
       }, function(error) {
         if (error) {
           console.log(error);
